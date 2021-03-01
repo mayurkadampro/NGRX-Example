@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  FIRBASE_API_KEY: 'AIzaSyA9HEOZrRHZP026VQObeDz2PVD_GLpMV50',
 };

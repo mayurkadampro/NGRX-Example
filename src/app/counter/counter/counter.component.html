@@ -1,0 +1,29 @@
+<div class="row my-3">
+    <div class="col">
+        <app-counter-output></app-counter-output>
+    </div>
+</div>
+
+<div class="row my-3">
+    <div class="col">
+        <app-counter-button></app-counter-button>
+    </div>
+</div>
+
+<div class="row my-3">
+    <div class="col">
+        {{ channelName$ | async}}
+    </div>
+</div>
+
+<div class="row my-3">
+    <div class="col">
+        <button class="btn btn-primary" (click)="changeChannelName()">Change Channel Name</button>
+    </div>
+</div>
+
+<div class="row my-3">
+    <div class="col">
+        <app-counter-custom-input></app-counter-custom-input>
+    </div>
+</div>
