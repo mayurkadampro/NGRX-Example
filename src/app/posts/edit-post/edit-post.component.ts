@@ -3,10 +3,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { AppState } from 'src/app/store/app.state';
 import { Post } from '../model/post.model';
 import { updatePost } from '../state/post.actions';
 import { getPostById } from '../state/post.selector';
+import { postsState } from '../state/post.state';
 
 @Component({
   selector: 'app-edit-post',
@@ -18,7 +18,7 @@ export class EditPostComponent implements OnInit {
   postForm: FormGroup;
   postSubscription: Subscription;
   constructor(
-    private store: Store<AppState>,
+    private store: Store<postsState>,
     private router: Router,
     private route: ActivatedRoute
   ) { }

@@ -1,7 +1,10 @@
-
 <div class="container-fluid">
   <app-header></app-header>
+  <app-loading-spinner *ngIf="showLoading | async"></app-loading-spinner>
   <div class="row">
+    <div class="alert alert-danger" *ngIf="errorMessage | async as error">
+      {{ error }}
+    </div>
     <div class="col text-center">
       <router-outlet></router-outlet>
     </div>

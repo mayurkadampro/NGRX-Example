@@ -9,8 +9,10 @@
             <a class="nav-item nav-link active" [routerLink]="['/']">Home</a>
             <a class="nav-item nav-link active" [routerLink]="['/counter']">Counter</a>
             <a class="nav-item nav-link active" [routerLink]="['/posts']">Posts</a>
-            <a class="nav-item nav-link active" [routerLink]="['/auth']">Login</a>
-            <a class="nav-item nav-link active" [routerLink]="['/auth/signup']">Signup</a>
+            <a class="nav-item nav-link active" [routerLink]="['/auth']" *ngIf="!(isAuthenticated | async)">Login</a>
+            <a class="nav-item nav-link active" [routerLink]="['/auth/signup']" *ngIf="!(isAuthenticated | async)">Signup</a>
+            <a class="nav-item nav-link active" *ngIf="isAuthenticated | async" (click)="onLogout()">Logout</a>
+
         </div>
     </div>
 </nav>
