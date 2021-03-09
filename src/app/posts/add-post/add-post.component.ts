@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Post } from '../model/post.model';
 import { addPost } from '../state/post.actions';
-import { postsState } from "../state/post.state"
+import { PostsState } from '../state/post.state';
 
 @Component({
   selector: 'app-add-post',
@@ -12,7 +12,7 @@ import { postsState } from "../state/post.state"
 })
 export class AddPostComponent implements OnInit {
   postForm: FormGroup;
-  constructor(private store: Store<postsState>) { }
+  constructor(private store: Store<PostsState>) { }
 
   ngOnInit(): void {
     this.postForm = new FormGroup({

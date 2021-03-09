@@ -8,17 +8,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { postReducer } from './state/post.reducer';
 import { POST_STATE_NAME } from './state/post.selector';
+import { PostsEffects } from './state/posts.effects';
+import { EffectsModule } from '@ngrx/effects';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 @NgModule({
   declarations: [
     PostlistComponent,
     AddPostComponent,
-    EditPostComponent
+    EditPostComponent,
+    SinglePostComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     PostRoutingModule,
+    EffectsModule.forFeature([PostsEffects]),
     StoreModule.forFeature(POST_STATE_NAME, postReducer)
   ]
 })

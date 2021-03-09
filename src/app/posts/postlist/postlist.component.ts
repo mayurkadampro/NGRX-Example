@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Post } from '../model/post.model';
-import { deletePost } from '../state/post.actions';
+import { deletePost, loadPosts } from '../state/post.actions';
 import { getPosts } from '../state/post.selector';
-import { postsState } from '../state/post.state';
+import { PostsState } from '../state/post.state';
 
 @Component({
   selector: 'app-postlist',
@@ -13,13 +13,14 @@ import { postsState } from '../state/post.state';
 })
 export class PostlistComponent implements OnInit {
   posts$: Observable<Post[]>
-  constructor(private store: Store<postsState>) { }
+  constructor(private store: Store<PostsState>) { }
 
   ngOnInit(): void {
+    this.store.dispatch(loadPosts());
     this.posts$ = this.store.select(getPosts)
   }
 
-  onDeletePost(id: number){
+  onDeletePost(id: string){
     if (confirm('Are you sure you want to delete')) {
       this.store.dispatch(deletePost({ id }));
     }
