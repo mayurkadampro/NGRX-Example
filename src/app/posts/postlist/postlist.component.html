@@ -1,6 +1,6 @@
 <div class="row text-center">
     <div class="col-md-8">
-        <h3>Posts List</h3>
+        <h3>Posts List ({{ count | async }})</h3>
         <table class="table table-striped" *ngIf="posts$ | async as postData">
             <thead>
                 <tr>
